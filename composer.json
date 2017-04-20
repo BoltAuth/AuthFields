@@ -1,0 +1,22 @@
+{
+    "name": "sahassar/MemberFields",
+    "type": "bolt-extension",
+    "require": {
+        "bolt/bolt": "^3.0.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Svante Richter",
+            "email": "svante.richter@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "sahassar\\MemberFields\\": "src"
+        }
+    },
+    "extra": {
+        "bolt-class": "sahassar\\MemberFields\\MemberFieldsExtension"
+    }
+}
