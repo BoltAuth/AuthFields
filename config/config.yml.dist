@@ -1,0 +1,14 @@
+# Additional fields for members
+fields:
+    postcode:
+        label: Postcode
+        labelclass: postcode-label
+        class: postcode-field
+        placeholder: Enter your Postcode
+        required: true
+    address:
+        label: Address
+        labelclass: address-label
+        class: address-field
+        placeholder: Enter your Address
+        required: true
