@@ -3,26 +3,16 @@
 namespace sahassar\MemberFields;
 
 use Bolt\Extension\Bolt\Members\Form\Entity\Profile as BaseProfile;
-use Symfony\Component\Validator\Constraints as Assert;
 
 class Profile extends BaseProfile
 {
-    /** @var string */
-    protected $postcode;
-
-    /**
-     * @return string
-     */
-    public function getPostcode()
+    public function __get($name)
     {
-        return $this->postcode;
+        return property_exists($this, $name) ? $this->{$name} : null;
     }
 
-    /**
-     * @param string $postcode
-     */
-    public function setPostcode($postcode)
+    public function __set($name, $value)
     {
-        $this->postcode = $postcode;
+        $this->{$name} = $value;
     }
 }
