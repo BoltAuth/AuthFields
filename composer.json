@@ -1,5 +1,5 @@
 {
-    "name": "sahassar/MemberFields",
+    "name": "sahassar/memberfields",
     "type": "bolt-extension",
     "require": {
         "bolt/bolt": "^3.0.0"
