@@ -29,21 +29,8 @@ class ProfileEditType extends MembersProfileEditType
     {
         parent::buildForm($builder, $options);
 
-        foreach ($this->fieldConfigs['fields'] as $key => $value) {
-            $builder
-                ->add($key, Type\TextType::class, [
-                    'label_attr'  => [
-                        'class' => $value['labelclass'] ?: $key
-                    ],
-                    'attr'        => [
-                        'class'       => $value['class'] ?: $key,
-                        'placeholder' => $value['placeholder'] ?: $key
-                    ],
-                    'label'       => $value['label'] ?: $key,
-                    'constraints' => [],
-                    'required'    => $value['required']
-                ])
-            ;
+        foreach ($this->fieldConfigs['fields'] as $key => $field) {
+            $builder->add($key, $field['type'], $field['options']);
         }
     }
 }
