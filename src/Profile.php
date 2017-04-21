@@ -6,13 +6,27 @@ use Bolt\Extension\Bolt\Members\Form\Entity\Profile as BaseProfile;
 
 class Profile extends BaseProfile
 {
-    public function __get($name)
-    {
-        return property_exists($this, $name) ? $this->{$name} : null;
-    }
 
-    public function __set($name, $value)
+    public function __call($method, $arguments)
     {
-        $this->{$name} = $value;
+        $var = lcfirst(preg_replace('/^(get|set)/i', '', $method));
+        $lowercased = lcfirst($var);
+
+        $try = [
+            $var,
+            $lowercased
+        ];
+
+        if (strncasecmp($method, 'get', 3) == 0) {
+            foreach ($try as $test) {
+                if (property_exists($this, $test)) {
+                    return $this->$test;
+                }
+            }
+        }
+
+        if (strncasecmp($method, 'set', 3) == 0) {
+            $this->$var = $arguments[0];
+        }
     }
 }
