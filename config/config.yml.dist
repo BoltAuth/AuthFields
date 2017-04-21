@@ -1,14 +1,30 @@
 # Additional fields for members
 fields:
-    postcode:
-        label: Postcode
-        labelclass: postcode-label
-        class: postcode-field
-        placeholder: Enter your Postcode
-        required: true
-    address:
-        label: Address
-        labelclass: address-label
-        class: address-field
-        placeholder: Enter your Address
-        required: true
+	message:
+		type: textarea
+		options:
+			required: true
+			label: Your message
+			attr:
+				placeholder: Your message...
+				class: myclass
+	needreply:
+		type: choice
+		options:
+			required: false
+			label: Do you want us to contact you back?
+			choices: { 'Yes': 'yes', 'No': 'no' }
+			multiple: false
+	pet_ownership:
+		type: choice
+		options:
+			required: false
+			label: Do you own a pet?
+			choices: [ Yes, No ]
+			multiple: false
+	cutest_pet:
+		type: choice
+		options:
+			required: false
+			label: Which do you think are cutest?
+			choices: { 'Fluffy Kittens': 'kittens', 'Cute Puppies': 'puppies' }
