@@ -1,8 +1,8 @@
 <?php
 
-namespace sahassar\MemberFields;
+namespace BoltAuth\AuthFields;
 
-use Bolt\Extension\Bolt\Members\Form\Entity\Profile as BaseProfile;
+use Bolt\Extension\BoltAuth\Auth\Form\Entity\Profile as BaseProfile;
 
 class Profile extends BaseProfile
 {
