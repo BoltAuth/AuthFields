@@ -1,5 +1,5 @@
 {
-    "name": "sahassar/memberfields",
+    "name": "boltauth/authfields",
     "type": "bolt-extension",
     "require": {
         "bolt/bolt": "^3.0.0"
@@ -13,10 +13,10 @@
     ],
     "autoload": {
         "psr-4": {
-            "sahassar\\MemberFields\\": "src"
+            "BoltAuth\\AuthFields\\": "src"
         }
     },
     "extra": {
-        "bolt-class": "sahassar\\MemberFields\\MemberFieldsExtension"
+        "bolt-class": "BoltAuth\\AuthFields\\AuthFieldsExtension"
     }
 }

@@ -1,4 +1,4 @@
-# Additional fields for members
+# Additional fields for auth
 fields:
     message:
         type: textarea
