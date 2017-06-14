@@ -1,24 +1,24 @@
 <?php
 
-namespace sahassar\MemberFields;
+namespace BoltAuth\AuthFields;
 
-use Bolt\Extension\Bolt\Members\Form\Type\ProfileEditType as MembersProfileEditType;
+use Bolt\Extension\BoltAuth\Auth\Form\Type\ProfileEditType as AuthProfileEditType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Bolt\Extension\Bolt\Members\Config\Config as MembersConfig;
+use Bolt\Extension\BoltAuth\Auth\Config\Config as AuthConfig;
 
-class ProfileEditType extends MembersProfileEditType
+class ProfileEditType extends AuthProfileEditType
 {
     /**
      * Constructor.
      *
-     * @param MembersConfig $membersConfig
+     * @param AuthConfig $authsConfig
      * @param array         $fieldConfigs
      */
-    public function __construct(MembersConfig $membersConfig, $fieldConfigs)
+    public function __construct(AuthConfig $authsConfig, $fieldConfigs)
     {
-        parent::__construct($membersConfig);
+        parent::__construct($authsConfig);
         $this->fieldConfigs = $fieldConfigs;
     }
 

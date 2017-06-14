@@ -1,32 +1,32 @@
 <?php
 
-namespace sahassar\MemberFields;
+namespace BoltAuth\AuthFields;
 
 use Bolt\Extension\SimpleExtension;
-use Bolt\Extension\Bolt\Members\Event\FormBuilderEvent;
-use Bolt\Extension\Bolt\Members\Event\MembersProfileEvent;
-use Bolt\Extension\Bolt\Members\Form\MembersForms;
-use Bolt\Extension\Bolt\Members\Event\MembersEvents;
+use Bolt\Extension\BoltAuth\Auth\Event\FormBuilderEvent;
+use Bolt\Extension\BoltAuth\Auth\Event\AuthProfileEvent;
+use Bolt\Extension\BoltAuth\Auth\Form\AuthForms;
+use Bolt\Extension\BoltAuth\Auth\Event\AuthEvents;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-class MemberFieldsExtension extends SimpleExtension
+class AuthFieldsExtension extends SimpleExtension
 {
     /**
      * {@inheritdoc}
      */
     protected function subscribe(EventDispatcherInterface $dispatcher)
     {
-        $dispatcher->addListener(MembersEvents::MEMBER_PROFILE_PRE_SAVE, [$this, 'onProfileSave']);
-        $dispatcher->addListener(MembersEvents::MEMBER_PROFILE_REGISTER, [$this, 'onProfileSave']);
+        $dispatcher->addListener(AuthEvents::AUTH_PROFILE_PRE_SAVE, [$this, 'onProfileSave']);
+        $dispatcher->addListener(AuthEvents::AUTH_PROFILE_REGISTER, [$this, 'onProfileSave']);
         $dispatcher->addListener(FormBuilderEvent::BUILD, [$this, 'onRequest']);
     }
 
     /**
-     * Tell Members what fields we want to persist.
+     * Tell Auth what fields we want to persist.
      *
-     * @param MembersProfileEvent $event
+     * @param AuthProfileEvent $event
      */
-    public function onProfileSave(MembersProfileEvent $event)
+    public function onProfileSave(AuthProfileEvent $event)
     {
         // Meta fields that we want to register
         $fields = [];
@@ -43,12 +43,12 @@ class MemberFieldsExtension extends SimpleExtension
      */
     public function onRequest(FormBuilderEvent $event)
     {
-        if ($event->getName() !== MembersForms::PROFILE_EDIT && $event->getName() !== MembersForms::PROFILE_VIEW && $event->getName() !== MembersForms::PROFILE_REGISTER) {
+        if ($event->getName() !== AuthForms::PROFILE_EDIT && $event->getName() !== AuthForms::PROFILE_VIEW && $event->getName() !== AuthForms::PROFILE_REGISTER) {
             return;
         }
         $app = $this->getContainer();
 
-        $type = new ProfileEditType($app['members.config'], $this->getConfig());
+        $type = new ProfileEditType($app['auths.config'], $this->getConfig());
 
         $entityClassName = Profile::class;
 
