@@ -13,12 +13,12 @@ class ProfileEditType extends AuthProfileEditType
     /**
      * Constructor.
      *
-     * @param AuthConfig $authsConfig
+     * @param AuthConfig $authConfig
      * @param array         $fieldConfigs
      */
-    public function __construct(AuthConfig $authsConfig, $fieldConfigs)
+    public function __construct(AuthConfig $authConfig, $fieldConfigs)
     {
-        parent::__construct($authsConfig);
+        parent::__construct($authConfig);
         $this->fieldConfigs = $fieldConfigs;
     }
 

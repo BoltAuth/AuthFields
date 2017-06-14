@@ -43,12 +43,12 @@ class AuthFieldsExtension extends SimpleExtension
      */
     public function onRequest(FormBuilderEvent $event)
     {
-        if ($event->getName() !== AuthForms::PROFILE_EDIT && $event->getName() !== AuthForms::PROFILE_VIEW && $event->getName() !== AuthForms::PROFILE_REGISTER) {
+        if ($event->getName() !== AuthForms::PROFILE_EDIT) {
             return;
         }
         $app = $this->getContainer();
 
-        $type = new ProfileEditType($app['auths.config'], $this->getConfig());
+        $type = new ProfileEditType($app['auth.config'], $this->getConfig());
 
         $entityClassName = Profile::class;
 
