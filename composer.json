@@ -17,6 +17,7 @@
         }
     },
     "extra": {
-        "bolt-class": "BoltAuth\\AuthFields\\AuthFieldsExtension"
+        "bolt-class": "BoltAuth\\AuthFields\\AuthFieldsExtension",
+        "bolt-icon": "fingerprint-extras.svg.png"
     }
 }
