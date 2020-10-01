@@ -50,9 +50,7 @@ class AuthFieldsExtension extends SimpleExtension
 
         $type = new ProfileEditType($app['auth.config'], $this->getConfig());
 
-        $entityClassName = Profile::class;
-
         $event->setType($type);
-        $event->setEntityClass($entityClassName);
+        $event->setEntityClass(null);
     }
 }
