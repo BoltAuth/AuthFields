@@ -5,12 +5,7 @@
         "bolt/bolt": "^3.0.0"
     },
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Svante Richter",
-            "email": "svante.richter@gmail.com"
-        }
-    ],
+    "authors": [],
     "autoload": {
         "psr-4": {
             "BoltAuth\\AuthFields\\": "src"
